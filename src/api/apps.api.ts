@@ -1,7 +1,8 @@
 import axios from "axios";
 
+// ✅ Use Railway URL from env OR fallback to localhost
 const API = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000",
 });
 
 // --------------------
@@ -29,7 +30,7 @@ export const addVersionApi = async (id: string, data: any) => {
 };
 
 // --------------------
-// UPDATE version (MISSING BEFORE ❌ NOW FIXED ✅)
+// UPDATE version
 // --------------------
 export const updateVersionApi = async (
   id: string,
@@ -47,6 +48,7 @@ export const deleteAppApi = async (id: string) => {
   const res = await API.delete(`/apps/${id}`);
   return res.data;
 };
+
 // --------------------
 // DELETE version
 // --------------------

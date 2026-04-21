@@ -5,19 +5,20 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // ✅ Allow frontend to connect
   app.enableCors({
-    origin: 'http://localhost:5173', // React Vite
+    origin: [
+      'http://localhost:5173',
+      'https://awais1365-design.github.io', // GitHub Pages frontend
+    ],
     methods: 'GET,POST,PUT,DELETE,PATCH,OPTIONS',
     credentials: true,
   });
 
-  // ✅ Global validation (VERY IMPORTANT)
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // removes extra fields
-      forbidNonWhitelisted: true, // throws error if extra fields sent
-      transform: true, // converts types automatically
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
     }),
   );
 
