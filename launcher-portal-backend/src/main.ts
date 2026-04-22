@@ -8,7 +8,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:5173',
-      'https://awais1365-design.github.io/launcherportal-app/', // GitHub Pages frontend
+      'https://awais1365-design.github.io', // ✅ correct
     ],
     methods: 'GET,POST,PUT,DELETE,PATCH,OPTIONS',
     credentials: true,
