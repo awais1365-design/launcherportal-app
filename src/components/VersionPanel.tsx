@@ -35,13 +35,13 @@ export default function VersionPanel({
   if (!isExpanded) return null;
 
   return (
-    <div className="version-panel absolute top-full left-0 right-0 mt-2 bg-gray-800 shadow-xl rounded-xl border border-gray-700 p-3 z-40 w-full">
+    <div className="version-panel absolute md:absolute relative top-full left-0 right-0 mt-2 bg-gray-800 shadow-xl rounded-xl border border-gray-700 p-3 z-40 w-full">
       <p className="text-sm text-gray-300 mb-2 font-semibold">Versions</p>
 
       {(versions || []).map((v: any, index: number) => (
         <div
           key={`${appId}-${index}`}
-          className="bg-gray-700 p-2 rounded mb-2 text-xs"
+          className="bg-gray-700 p-2 rounded mb-2 text-xs break-words"
         >
           {editVersion?.appId === appId && editVersion?.index === index ? (
             <>
@@ -74,7 +74,7 @@ export default function VersionPanel({
                 )}
               </div>
 
-              <div className="flex gap-2 mt-2">
+              <div className="flex flex-wrap gap-2 mt-2">
                 <button
                   className="text-green-400 font-bold hover:text-green-300"
                   onClick={onSaveEdit}

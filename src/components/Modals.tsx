@@ -16,7 +16,7 @@ export const ModalWrapper = ({ isOpen, onClose, children }: ModalProps) => {
       onClick={onClose}
     >
       <div
-        className="bg-gray-900 p-6 rounded-xl w-96"
+        className="bg-gray-900 p-4 md:p-6 rounded-xl w-[90%] max-w-md"
         onClick={(e) => e.stopPropagation()}
       >
         {children}

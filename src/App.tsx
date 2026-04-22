@@ -180,7 +180,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white flex">
+    <div className="min-h-screen bg-gray-950 text-white flex flex-col md:flex-row">
       <Sidebar />
 
       <Dashboard
