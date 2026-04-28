@@ -2,7 +2,7 @@ import axios from "axios";
 
 // ✅ Use Railway URL from env OR fallback to localhost
 const API = axios.create({
-  baseURL: "https://launcherportal-app-production.up.railway.app/",
+  baseURL: "https://launcherportal-app-production.up.railway.app",
 });
 
 // --------------------

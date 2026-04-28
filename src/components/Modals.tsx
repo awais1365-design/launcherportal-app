@@ -12,11 +12,11 @@ export const ModalWrapper = ({ isOpen, onClose, children }: ModalProps) => {
 
   return (
     <div
-      className="modal fixed inset-0 bg-black/60 flex items-center justify-center z-50"
+      className="modal fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4"
       onClick={onClose}
     >
       <div
-        className="bg-gray-900 p-4 md:p-6 rounded-xl w-[90%] max-w-md"
+        className="w-full max-w-md rounded-xl border border-[#2c3d50] bg-[linear-gradient(180deg,#1b2838_0%,#10161f_100%)] p-4 md:p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {children}
@@ -43,11 +43,14 @@ export const CreateAppModal = ({
 }: any) => {
   return (
     <ModalWrapper isOpen={isOpen} onClose={onClose}>
-      <h2 className="text-xl font-bold mb-4">Create New App</h2>
+      <div className="mb-4">
+        <div className="text-[11px] uppercase tracking-wide text-[#7f98ad]">New Library Entry</div>
+        <h2 className="mt-1 text-xl font-bold text-[#d7e7f5]">Create New App</h2>
+      </div>
       
       <div className="mb-3">
         <input
-          className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-green-500"
+          className="w-full rounded-md border border-[#31485f] bg-[#0b1118] p-3 text-white focus:outline-none focus:border-[#66c0f4]"
           placeholder="App name"
           value={appName}
           onChange={(e) => {
@@ -62,7 +65,7 @@ export const CreateAppModal = ({
 
       <div className="mb-6">
         <input
-          className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-green-500"
+          className="w-full rounded-md border border-[#31485f] bg-[#0b1118] p-3 text-white focus:outline-none focus:border-[#66c0f4]"
           placeholder="www.example.com"
           value={appUrl}
           onChange={(e) => {
@@ -81,13 +84,13 @@ export const CreateAppModal = ({
             onClose();
             setAppErrors({});
           }}
-          className="bg-gray-700 px-3 py-1 rounded"
+          className="rounded-md bg-[#1a2633] px-4 py-2 text-sm text-[#c7d5e0]"
         >
           Cancel
         </button>
         <button
           onClick={onSubmit}
-          className="bg-green-500 px-3 py-1 rounded"
+          className="rounded-md border border-[#3e5973] bg-[linear-gradient(180deg,#66c0f4_0%,#417a9b_100%)] px-4 py-2 text-sm font-semibold text-[#0f1a24] transition hover:brightness-105"
         >
           Create
         </button>
@@ -112,11 +115,14 @@ export const AddVersionModal = ({
 }: any) => {
   return (
     <ModalWrapper isOpen={isOpen} onClose={onClose}>
-      <h2 className="text-xl font-bold mb-4">Add Version</h2>
+      <div className="mb-4">
+        <div className="text-[11px] uppercase tracking-wide text-[#7f98ad]">Build Depot</div>
+        <h2 className="mt-1 text-xl font-bold text-[#d7e7f5]">Add Version</h2>
+      </div>
 
       <div className="mb-3">
         <input
-          className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
+          className="w-full rounded-md border border-[#31485f] bg-[#0b1118] p-3 text-white focus:outline-none focus:border-[#66c0f4]"
           placeholder="1.0.1"
           value={versionName}
           onChange={(e) => {
@@ -131,7 +137,7 @@ export const AddVersionModal = ({
 
       <div className="mb-6">
         <input
-          className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
+          className="w-full rounded-md border border-[#31485f] bg-[#0b1118] p-3 text-white focus:outline-none focus:border-[#66c0f4]"
           placeholder="www.download.com"
           value={versionUrl}
           onChange={(e) => {
@@ -150,11 +156,14 @@ export const AddVersionModal = ({
             onClose();
             setVersionErrors({});
           }}
-          className="bg-gray-700 px-3 py-1 rounded"
+          className="rounded-md bg-[#1a2633] px-4 py-2 text-sm text-[#c7d5e0]"
         >
           Cancel
         </button>
-        <button onClick={onSubmit} className="bg-blue-500 px-3 py-1 rounded">
+        <button
+          onClick={onSubmit}
+          className="rounded-md border border-[#3e5973] bg-[linear-gradient(180deg,#66c0f4_0%,#417a9b_100%)] px-4 py-2 text-sm font-semibold text-[#0f1a24] transition hover:brightness-105"
+        >
           Add
         </button>
       </div>
@@ -176,18 +185,24 @@ export const DeleteAppModal = ({
 }) => {
   return (
     <ModalWrapper isOpen={isOpen} onClose={onClose}>
-      <h2 className="text-xl font-bold text-red-400 mb-4">Delete App</h2>
-      <p className="text-sm text-gray-300 mb-6">
+      <div className="mb-4">
+        <div className="text-[11px] uppercase tracking-wide text-[#a88686]">Remove From Library</div>
+        <h2 className="mt-1 text-xl font-bold text-[#f1c4c4]">Delete App</h2>
+      </div>
+      <p className="mb-6 text-sm text-[#c7d5e0]">
         Are you sure you want to delete this app?
       </p>
       <div className="flex justify-end gap-2">
         <button
           onClick={onClose}
-          className="bg-gray-700 px-3 py-1 rounded"
+          className="rounded-md bg-[#1a2633] px-4 py-2 text-sm text-[#c7d5e0]"
         >
           Cancel
         </button>
-        <button onClick={onDelete} className="bg-red-600 px-3 py-1 rounded">
+        <button
+          onClick={onDelete}
+          className="rounded-md border border-[#6b2a2a] bg-[linear-gradient(180deg,#a94848_0%,#732f2f_100%)] px-4 py-2 text-sm font-semibold text-white"
+        >
           Delete
         </button>
       </div>
